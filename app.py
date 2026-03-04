@@ -71,6 +71,7 @@ def descargar_como_mp3():
             '--audio-quality', '192K',       # calidad 192kbps
             '--geo-bypass',              # ignora restricciones geográficas
             '--cookies', 'cookies.txt',   # usa el archivo de cookies
+            '--js-runtimes', 'node',     # que use node
             '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),  # carpeta de salida
             url
         ], check=True, timeout=300)          # espera hasta 5 minutos
