@@ -5,11 +5,7 @@ FROM python:3.12-slim
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     nodejs \
-    npm \
     && rm -rf /var/lib/apt/lists/*
-
-# Instalar el challenge solver de yt-dlp
-RUN npm install -g @distube/ytdl-core
 
 # Crear la carpeta de trabajo
 WORKDIR /app
