@@ -66,12 +66,10 @@ def descargar_como_mp3():
         # Llama a yt-dlp como comando del sistema
         subprocess.run([
             'yt-dlp',
-            '-x',
-            '--audio-format', 'mp3',
-            '--audio-quality', '192K',
-            '--geo-bypass',
-            '--cookies', 'cookies.txt',
-            '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),
+            '-x',                            # extrae solo el audio
+            '--audio-format', 'mp3',         # convierte a mp3
+            '--audio-quality', '192K',       # calidad 192kbps
+            '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),  # carpeta de salida
             url
         ], check=True, timeout=300)          # espera hasta 5 minutos
 
