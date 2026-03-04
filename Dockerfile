@@ -1,20 +1,24 @@
-# Usamos Python 3.12 como base
+# Uso Python 3.12 como base
 FROM python:3.12-slim
 
 # Instalamos ffmpeg y yt-dlp del sistema
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     nodejs \
+    npm \
     && rm -rf /var/lib/apt/lists/*
 
-# Creamos la carpeta de trabajo
+# Instalar el challenge solver de yt-dlp
+RUN npm install -g @distube/ytdl-core
+
+# Crear la carpeta de trabajo
 WORKDIR /app
 
-# Copiamos e instalamos las dependencias Python
+# Copiar e instalamos las dependencias Python
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiamos el resto del proyecto
+# Copiar el resto del proyecto
 COPY . .
 
 # Puerto que usa Flask
