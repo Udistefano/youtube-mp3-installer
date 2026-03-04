@@ -32,7 +32,7 @@ document.getElementById('btn-descargar').addEventListener('click', async () => {
     const link    = document.createElement('a');
     link.href     = urlBlob;
     const header  = res.headers.get('Content-Disposition');
-    const nombre  = header ? header.split('filename=')[1].replace(/"/g, '') : 'audio.mp3';
+    const nombre = header ? header.split('filename=')[1].split(';')[0].replace(/"/g, '').trim() : 'audio.mp3';
     link.download = nombre;
     link.style.display = 'none';
     document.body.appendChild(link);
