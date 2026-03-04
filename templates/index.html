@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>YT MP3</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <h1>YouTube MP3 Downloader</h1>
+
+  <input type="text" id="url-input" placeholder="Pegá el link de YouTube acá" />
+  <button id="btn-descargar">Descargar MP3</button>
+
+  <p id="estado"></p>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
