@@ -69,6 +69,7 @@ def descargar_como_mp3():
             '-x',                            # extrae solo el audio
             '--audio-format', 'mp3',         # convierte a mp3
             '--audio-quality', '192K',       # calidad 192kbps
+            '--geo-bypass',              # ignora restricciones geográficas
             '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),  # carpeta de salida
             url
         ], check=True, timeout=300)          # espera hasta 5 minutos
