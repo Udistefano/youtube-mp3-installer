@@ -66,13 +66,12 @@ def descargar_como_mp3():
         # Llama a yt-dlp como comando del sistema
         subprocess.run([
             'yt-dlp',
-            '-x',                            # extrae solo el audio
-            '--audio-format', 'mp3',         # convierte a mp3
-            '--audio-quality', '192K',       # calidad 192kbps
-            '--geo-bypass',              # ignora restricciones geográficas
-            '--cookies', 'cookies.txt',   # usa el archivo de cookies
-            '--remote-components', 'ejs:github',  # descarga el solver de GitHub
-            '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),  # carpeta de salida
+            '-x',
+            '--audio-format', 'mp3',
+            '--audio-quality', '192K',
+            '--geo-bypass',
+            '--cookies', 'cookies.txt',
+            '-o', os.path.join(carpeta_temporal, '%(title)s.%(ext)s'),
             url
         ], check=True, timeout=300)          # espera hasta 5 minutos
 
